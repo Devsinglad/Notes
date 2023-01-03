@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  signInWithGoogle();
+                  signInWithGoogle(context);
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,

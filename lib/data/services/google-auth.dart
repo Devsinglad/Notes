@@ -10,76 +10,76 @@ CollectionReference users = FirebaseFirestore.instance.collection('users');
 
 // changing return type to void
 // as bool was not needed here
-// void signInWithGoogle(BuildContext context) async {
-//   try {
-//     final GoogleSignInAccount? googleSignInAccount =
-//         await googleSignIn.signIn();
-//
-//     if (googleSignInAccount != null) {
-//       final GoogleSignInAuthentication googleSignInAuthentication =
-//           await googleSignInAccount.authentication;
-//
-//       final AuthCredential credential = GoogleAuthProvider.credential(
-//           accessToken: googleSignInAuthentication.accessToken,
-//           idToken: googleSignInAuthentication.idToken);
-//
-//       final UserCredential authResult =
-//           await auth.signInWithCredential(credential);
-//
-//       final User? user = authResult.user;
-//
-//       var userData = {
-//         'name': googleSignInAccount.displayName,
-//         'provider': 'google',
-//         'photoUrl': googleSignInAccount.photoUrl,
-//         'email': googleSignInAccount.email,
-//       };
-//
-//       users.doc(user?.uid).get().then((doc) {
-//         if (doc.exists) {
-//           // old user
-//           doc.reference.update(userData);
-//
-//           Navigator.of(context).pushReplacement(
-//             MaterialPageRoute(
-//               builder: (context) => HomePage(),
-//             ),
-//           );
-//         } else {
-//           // new user
-//
-//           users.doc(user?.uid).set(userData);
-//
-//           Navigator.of(context).pushReplacement(
-//             MaterialPageRoute(
-//               builder: (context) => HomePage(),
-//             ),
-//           );
-//         }
-//       });
-//     }
-//   } catch (PlatformException) {
-//     print(PlatformException);
-//     print("Sign in not successful !");
-//     // better show an alert here
-//   }
-// }
-
-signInWithGoogle() async {
+void signInWithGoogle(BuildContext context) async {
   try {
-    GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+    final GoogleSignInAccount? googleSignInAccount =
+        await googleSignIn.signIn();
 
-    AuthCredential credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
-    UserCredential userCredential =
-        await FirebaseAuth.instance.signInWithCredential(credential);
-    print(userCredential.user?.displayName);
+    if (googleSignInAccount != null) {
+      final GoogleSignInAuthentication googleSignInAuthentication =
+          await googleSignInAccount.authentication;
+
+      final AuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleSignInAuthentication.accessToken,
+          idToken: googleSignInAuthentication.idToken);
+
+      final UserCredential authResult =
+          await auth.signInWithCredential(credential);
+
+      final User? user = authResult.user;
+
+      var userData = {
+        'name': googleSignInAccount.displayName,
+        'provider': 'google',
+        'photoUrl': googleSignInAccount.photoUrl,
+        'email': googleSignInAccount.email,
+      };
+
+      users.doc(user?.uid).get().then((doc) {
+        if (doc.exists) {
+          // old user
+          doc.reference.update(userData);
+
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ),
+          );
+        } else {
+          // new user
+
+          users.doc(user?.uid).set(userData);
+
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => HomePage(),
+            ),
+          );
+        }
+      });
+    }
   } catch (PlatformException) {
     print(PlatformException);
     print("Sign in not successful !");
     // better show an alert here
   }
 }
+//
+// signInWithGoogle() async {
+//   try {
+//     GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+//     GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+//
+//     AuthCredential credential = GoogleAuthProvider.credential(
+//       accessToken: googleAuth?.accessToken,
+//       idToken: googleAuth?.idToken,
+//     );
+//     UserCredential userCredential =
+//         await FirebaseAuth.instance.signInWithCredential(credential);
+//     print(userCredential.user?.displayName);
+//   } catch (PlatformException) {
+//     print(PlatformException);
+//     print("Sign in not successful !");
+//     // better show an alert here
+//   }
+// }

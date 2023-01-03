@@ -10,6 +10,21 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
+            Text(
+              'Notes',
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
