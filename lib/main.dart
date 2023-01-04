@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.white,
         scaffoldBackgroundColor: Color(0xff070706),
       ),
-      home: LoginPage(),
+      home:
+          FirebaseAuth.instance.currentUser == null ? LoginPage() : HomePage(),
     );
   }
 }
