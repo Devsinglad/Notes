@@ -40,7 +40,7 @@ void signInWithGoogle(BuildContext context) async {
           // old user
           doc.reference.update(userData);
 
-          Navigator.of(context).pushReplacement(
+          Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => HomePage(),
             ),
@@ -50,7 +50,7 @@ void signInWithGoogle(BuildContext context) async {
 
           users.doc(user?.uid).set(userData);
 
-          Navigator.of(context).pushReplacement(
+          Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => HomePage(),
             ),

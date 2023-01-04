@@ -42,34 +42,22 @@ class _ViewNoteState extends State<ViewNote> {
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(
-              12.0,
+              20.0,
             ),
             child: Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    ElevatedButton(
+                    IconButton(
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Icon(
+                      icon: Icon(
                         Icons.arrow_back_ios_outlined,
                         size: 24.0,
                       ),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey[700],
-                        ),
-                        padding: MaterialStateProperty.all(
-                          EdgeInsets.symmetric(
-                            horizontal: 25.0,
-                            vertical: 8.0,
-                          ),
-                        ),
-                      ),
                     ),
-                    //
                     Row(
                       children: [
                         ElevatedButton(
@@ -107,7 +95,7 @@ class _ViewNoteState extends State<ViewNote> {
                           ),
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
-                              Colors.red[300],
+                              Colors.red[500],
                             ),
                             padding: MaterialStateProperty.all(
                               EdgeInsets.symmetric(

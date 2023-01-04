@@ -25,24 +25,13 @@ class _AddNoteState extends State<AddNote> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    ElevatedButton(
+                    IconButton(
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Icon(
+                      icon: Icon(
                         Icons.arrow_back_ios_outlined,
                         size: 24.0,
-                      ),
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
-                          Colors.grey[700],
-                        ),
-                        padding: MaterialStateProperty.all(
-                          EdgeInsets.symmetric(
-                            horizontal: 25.0,
-                            vertical: 8.0,
-                          ),
-                        ),
                       ),
                     ),
                     //
