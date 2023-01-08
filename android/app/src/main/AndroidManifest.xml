@@ -2,9 +2,9 @@
     package="com.example.note">
     <uses-permission android:name="andriod.permission.INTERNET"/>
     <application
-        android:label="note"
+        android:label="My Notes"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"

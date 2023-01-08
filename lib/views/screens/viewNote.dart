@@ -157,9 +157,6 @@ class _ViewNoteState extends State<ViewNote> {
                           ),
                         ),
                       ),
-
-                      //
-
                       TextFormField(
                         decoration: InputDecoration.collapsed(
                           hintText: "Note Description",
